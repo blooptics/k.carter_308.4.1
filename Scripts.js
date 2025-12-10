@@ -87,5 +87,6 @@ newArray.push(addObj);
 console.log(newArray);
 
 
-const csvJoin = newArray.map(line => line.join(',')).join('\n');
-console.log(csvJoin);
+//Part 5 
+
+//Join the arrays together??
