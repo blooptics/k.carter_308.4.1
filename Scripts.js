@@ -86,6 +86,26 @@ let addObj = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
 newArray.push(addObj);
 console.log(newArray);
 
+//Find a mean through a loop
+//Go through araay
+let csvAges = [];
+let sum =0;
+for (let p=0;p<newArray.length;p++) {
+    csvAges.push(Number(newArray[p].age));
+
+    for(k=0; k <csvAges.length;k++){
+        sum +=csvAges[k];
+        // sum = sum/csvAges.length;
+    }
+}
+console.log(sum);
+
+
+
+
+
+
+
 
 //Part 5 
 
