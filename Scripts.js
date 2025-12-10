@@ -13,7 +13,7 @@ for (let i = 0; i < str.length; i++) {
     if (current == ",") {
         commas++;
     } else if (current == "\n") {
-        console.log(cell1, cell2, cell3, cell4);
+        // console.log(cell1, cell2, cell3, cell4);
         cell1 = '';
         cell2 = '';
         cell3 = '';
@@ -33,16 +33,59 @@ for (let i = 0; i < str.length; i++) {
     }
 
     if (i + 1 == str.length) {
-        console.log(cell1, cell2, cell3, cell4);
+        // console.log(cell1, cell2, cell3, cell4);
     }
 }
 
 
 //Part 2!
 
-//                                 I seen this from google please let me know if this isnt okay!
+//                                
 let csvArray = str.split('\n').map(line => line.split(","));
-console.log(csvArray);
+// console.log(csvArray);
 
 //Part 3
+// What do we know
+//      Transforming array into object keys
+//what can we infer?
 
+//      Loop through array[0] and try to make it lowercase??
+let csvheaders = [];
+let csvRow = csvArray[0];
+let newArray = [];
+
+for (let i = 0; i < csvRow.length; i++) {
+  csvheaders.push(csvRow[i].toLowerCase());
+}
+//-------------------------------------->
+
+//loop through the arrays into keys 
+for (let i = 1; i < csvArray.length; i++) {
+  let row = csvArray[i];
+  let csvNewKeys = {};
+
+  for (let j = 0; j < csvheaders.length; j++) {
+    csvNewKeys[csvheaders[j]] = row[j];
+  }
+
+  newArray.push(csvNewKeys);
+}
+
+// console.log(newArray);
+
+
+//Part 4
+//Delete last sorted array
+let lastDel = newArray.pop();
+// console.log(newArray);
+
+
+
+// add to array
+let addObj = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
+newArray.push(addObj);
+console.log(newArray);
+
+
+const csvJoin = newArray.map(line => line.join(',')).join('\n');
+console.log(csvJoin);
