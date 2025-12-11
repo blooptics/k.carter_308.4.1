@@ -92,19 +92,9 @@ let csvAges = [];
 let sum =0;
 for (let p=0;p<newArray.length;p++) {
     csvAges.push(Number(newArray[p].age));
-
-    for(k=0; k <csvAges.length;k++){
-        sum +=csvAges[k];
-        // sum = sum/csvAges.length;
-    }
+    sum += csvAges[p];
 }
-console.log(sum);
-
-
-
-
-
-
+console.log(sum/csvAges.length);
 
 
 //Part 5 
