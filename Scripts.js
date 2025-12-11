@@ -101,28 +101,4 @@ console.log(basicAvg);
 //Part 5 
 //I couldn't figure this out :(
 //Convert to csv
-let headers = Object.keys(newArray[0]);
-let convertRow = [];
 
-convertRow.push(headers.join(","));
-
-for (let i = 0; i < str.length; i++) {
-  let obj = str[i];
-  let row = "";
-
-  // Build the row one piece at a time
-  for (let j = 0; j < headers.length; j++) {
-    let key = headers[j];
-    row += obj[key];
-
-    // Add a comma *except* after the last value
-    if (j < headers.length - 1) {
-      row += ",";
-    }
-  }
-
-  convertRow.push(row);
-}
-
-let csvTotalString = headers.join("\n");
-console.log(csvTotalString);
