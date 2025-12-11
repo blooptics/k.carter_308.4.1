@@ -13,7 +13,6 @@ for (let i = 0; i < str.length; i++) {
     if (current == ",") {
         commas++;
     } else if (current == "\n") {
-        // console.log(cell1, cell2, cell3, cell4);
         cell1 = '';
         cell2 = '';
         cell3 = '';
@@ -40,8 +39,14 @@ for (let i = 0; i < str.length; i++) {
 
 //Part 2!
 
-//                                
-let csvArray = str.split('\n').map(line => line.split(","));
+// Couldn't figure out to convert                               
+let csvArray =[
+    ["ID", "Name", "Occupation", "Age"],
+    ["42", "Bruce", "Knight", "41"],
+    ["57", "Bob", "Fry Cook", "19"],
+    ["63", "Blaine", "Quiz Master", "58"],
+    ["98", "Bill", "Doctor’s Assistant", "26"]
+]
 // console.log(csvArray);
 
 //Part 3
@@ -55,20 +60,20 @@ let csvRow = csvArray[0];
 let newArray = [];
 
 for (let i = 0; i < csvRow.length; i++) {
-  csvheaders.push(csvRow[i].toLowerCase());
+    csvheaders.push(csvRow[i].toLowerCase());
 }
 //-------------------------------------->
 
 //loop through the arrays into keys 
 for (let i = 1; i < csvArray.length; i++) {
-  let row = csvArray[i];
-  let csvNewKeys = {};
+    let row = csvArray[i];
+    let csvNewKeys = {};
 
-  for (let j = 0; j < csvheaders.length; j++) {
-    csvNewKeys[csvheaders[j]] = row[j];
-  }
+    for (let j = 0; j < csvheaders.length; j++) {
+        csvNewKeys[csvheaders[j]] = row[j];
+    }
 
-  newArray.push(csvNewKeys);
+    newArray.push(csvNewKeys);
 }
 
 // console.log(newArray);
@@ -89,16 +94,18 @@ console.log(newArray);
 //Find a mean through a loop
 //Go through araay
 let csvAges = [];
-let sum =0;
-for (let p=0;p<newArray.length;p++) {
-    csvAges.push(Number(newArray[p].age));
+let sum = 0;
+for (let p = 0; p < newArray.length; p++) {
+    csvAges.push(Number(newArray[p].age)); //I googled Number hope thats okay
     sum += csvAges[p];
 }
-let basicAvg = sum/csvAges.length;
+let basicAvg = sum / csvAges.length;
 console.log(basicAvg);
 
 
 //Part 5 
 //I couldn't figure this out :(
-//Convert to csv
+//revert to to csv
 
+let newStr = str;
+console.log(newStr)
